@@ -1,1 +1,1 @@
-<button [innerHtml]="label"></button>
+<button [innerHtml]="label" [disabled]="!forceEnable && (this.isButtonDisabled$ | async)"></button>

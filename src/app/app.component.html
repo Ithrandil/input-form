@@ -3,5 +3,5 @@ Ceci est le composant container avec un router outlet qui appelle l'organisation
 <router-outlet></router-outlet>
 
 Button component dans le container au même niveau que le router outlet
-<app-button label="Précédant" (click)="backwardActionOnClick()"></app-button>
+<app-button label="Précédant" [forceEnable]=true (click)="backwardActionOnClick()"></app-button>
 <app-button label="Suivant" (click)="forwardActionOnClick()"></app-button>

@@ -23,7 +23,7 @@ import { StepperStore } from './stepper.store';
     OtherStepFormComponent
   ],
   imports: [
-    NgxsModule.forRoot([StepperStore, DemandeStore]),
+    NgxsModule.forRoot([StepperStore, DemandeStore], { developmentMode: true }),
     ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule

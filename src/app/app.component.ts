@@ -36,10 +36,6 @@ export class AppComponent implements OnInit{
   }
 
   forwardActionOnClick() {
-    // RECEVOIR UN BOOLEAN POUR SAVOIR SI IL EST DISABLED QUI POURRA CHANGER EN FONCTION DU VALID DU FORM
-    // EMETTRE UN EVENT A CHAQUE CLICK POUR QUE LE FORM COMPONENT ENREGITRE LA VALUE (en bdd ou local storage) & fasse la redirection
-
-    // ENCORE MIEUX!!! => NE RIEN METTRE ICI ET METTRE UN CLICKEVENT DANS LE FORMCOMP! :D OU SE BASER SUR LA DATA DU STORESTEPPER?
     this.currenStep$.pipe(
       take(1),
       tap(currentStep => {

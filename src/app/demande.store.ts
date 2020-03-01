@@ -1,5 +1,4 @@
 import { Action, Selector, State, StateContext } from '@ngxs/store';
-import { patch } from '@ngxs/store/operators';
 
 export interface DemandeStateModel {
     demande: {};
@@ -29,17 +28,15 @@ constructor(public payload: {}) { }
       return state.demande;
     }
 
-  
     @Action(SetDemande)
     SetCurrentStep(
       ctx: StateContext<DemandeStateModel>,
       action: SetDemande
     ) {
-      ctx.setState(
-      patch({
-        demande: action.payload
-      })
-    );
+      const state = ctx.getState();
+      ctx.setState({
+        demande: {...state.demande, ...action.payload}
+      });
       // APPEL HTTP PUIS REMISE A JOUR DU STORE
     }
 

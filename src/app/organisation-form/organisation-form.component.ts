@@ -1,11 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Select, Store } from '@ngxs/store';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { take, tap } from 'rxjs/operators';
 
 import { DemandeStore, SetDemande } from '../demande.store';
-import { SetCurrentStep } from '../stepper.store';
+import { SetCurrentStep, SetDisableButtonValue } from '../stepper.store';
 
 @Component({
   selector: 'app-organisation-form',
@@ -13,14 +13,15 @@ import { SetCurrentStep } from '../stepper.store';
   styleUrls: ['./organisation-form.component.scss']
 })
 export class OrganisationFormComponent  implements OnInit, OnDestroy {
-@Select(DemandeStore.getCurrentDemande) demande$: Observable<any>;
-  organisationForm = this.fb.group({
+  @Select(DemandeStore.getCurrentDemande) demande$: Observable<any>;
+  private subscription: Subscription;
+  public organisationForm = this.fb.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
     phoneNumber: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
   });
-  errors = {
+  public errors = {
     firstName: {
       required: 'Le prénom est obligatoire'
     },
@@ -45,19 +46,20 @@ export class OrganisationFormComponent  implements OnInit, OnDestroy {
     this.demande$.pipe(
       take(1),
       tap(demandeFromStore => {
-        if (demandeFromStore !== null) {
+        if (demandeFromStore !== null /** Ou tout autre check pertinent */) {
           // REMPLIR LE FORMULAIRE AVEC LES DATA
         }})
-    ).subscribe();
-    this.organisationForm.statusChanges.pipe(
-      tap(v => console.log('dans lobservable du changement de status', v))
-    ).subscribe();
+        ).subscribe();
+    this.store.dispatch(new SetDisableButtonValue(this.organisationForm.status !== 'VALID'));
+    this.subscription.add(this.organisationForm.statusChanges.pipe(
+      tap(status => this.store.dispatch(new SetDisableButtonValue(status !== 'VALID'))),
+    ).subscribe());
   }
 
   ngOnDestroy() {
+    this.subscription.unsubscribe();
     if (this.organisationForm.valid) {
       this.store.dispatch(new SetDemande(this.organisationForm.getRawValue()));
-      console.log(this.organisationForm.getRawValue());
     } else {
       console.log('pas valide');
     }

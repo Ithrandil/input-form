@@ -2,41 +2,41 @@
 <div>
     <app-input 
         type="text"
-        placeholder="Ex: Alexandre"
-        label="Prénom"
-        [form]="this.organisationForm.controls.firstName"
-        [errors]="this.errors.firstName"
+        placeholder="Ex: Dark souls"
+        label="Jeu favori"
+        [form]="this.favForm.controls.favoriteGame"
+        [errors]="this.errors.favoriteGame"
         ></app-input>
 </div>
 <div>
     <app-input 
         type="text"
-        placeholder="Ex: Guérin"
-        label="Nom"
-        [form]="this.organisationForm.controls.lastName"
-        [errors]="this.errors.lastName"
-        ></app-input>
-</div>
-<div>
-    <app-input 
-        type="email"
-        placeholder="Ex: dev@apside.com"
-        label="Email"
-        [form]="this.organisationForm.controls.email"
-        [errors]="this.errors.email"
+        placeholder="Ex: Soupe de navet"
+        label="Plat favori"
+        [form]="this.favForm.controls.favoriteMeal"
+        [errors]="this.errors.favoriteMeal"
         ></app-input>
 </div>
 <div>
     <app-input 
         type="text"
-        placeholder="Ex: 06 15 11 88 66"
-        label="Mobile"
-        [form]="this.organisationForm.controls.phoneNumber"
-        [errors]="this.errors.phoneNumber"
+        placeholder="Ex: Bière"
+        label="Boisson favorite"
+        [form]="this.favForm.controls.favoriteBeverage"
+        [errors]="this.errors.favoriteBeverage"
+        ></app-input>
+</div>
+<div>
+    <app-input 
+        type="text"
+        placeholder="Ex: Tokyo"
+        label="Lieu favori"
+        [form]="this.favForm.controls.favoritePlace"
+        [errors]="this.errors.favoritePlace"
         ></app-input>
 </div>
 
 
 <div>
-    Validité du formulaire => {{this.organisationForm.status}}
+    Validité du formulaire => {{this.favForm.status}}
 </div>
