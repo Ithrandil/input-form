@@ -1,7 +1,14 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { OrganisationFormComponent } from './organisation-form/organisation-form.component';
+import { OtherStepFormComponent } from './otherstep-form/other-step-form.component';
+
+const routes: Routes = [
+  {path: 'organisation', component: OrganisationFormComponent},
+  {path: 'etape2', component: OtherStepFormComponent},
+  {path: '', redirectTo: 'organisation', pathMatch: 'full'}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

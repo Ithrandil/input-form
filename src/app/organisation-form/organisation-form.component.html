@@ -1,0 +1,42 @@
+<p>L'organisationForm fait quant à lui appel à des input components</p>
+<div>
+    <app-input 
+        type="text"
+        placeholder="Ex: Alexandre"
+        label="Prénom"
+        [form]="this.organisationForm.controls.firstName"
+        [errors]="this.errors.firstName"
+        ></app-input>
+</div>
+<div>
+    <app-input 
+        type="text"
+        placeholder="Ex: Guérin"
+        label="Nom"
+        [form]="this.organisationForm.controls.lastName"
+        [errors]="this.errors.lastName"
+        ></app-input>
+</div>
+<div>
+    <app-input 
+        type="email"
+        placeholder="Ex: dev@apside.com"
+        label="Email"
+        [form]="this.organisationForm.controls.email"
+        [errors]="this.errors.email"
+        ></app-input>
+</div>
+<div>
+    <app-input 
+        type="text"
+        placeholder="Ex: 06 15 11 88 66"
+        label="Mobile"
+        [form]="this.organisationForm.controls.phoneNumber"
+        [errors]="this.errors.phoneNumber"
+        ></app-input>
+</div>
+
+
+<div>
+    Validité du formulaire => {{this.organisationForm.status}}
+</div>

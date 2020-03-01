@@ -1,0 +1,17 @@
+
+<div>
+    <label *ngIf="label" [innerHtml]="label"></label>
+    <input 
+        class="form-control"
+        [type]="type"
+        [placeholder]="placeholder"
+        (blur)="this.updateValue($event.target.value)"
+        >
+    <div *ngFor="let err of errors | keyvalue">
+        <div *ngIf="this.form.touched && this.form.errors && this.form.errors[err.key]" class="alert alert-danger error">
+            Erreur {{err.key}} => {{err.value}}
+        </div>
+    </div>
+</div>
+
+Validité du champ => {{this.form.status}}
