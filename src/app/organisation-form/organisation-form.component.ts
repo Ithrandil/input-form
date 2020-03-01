@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { take, tap } from 'rxjs/operators';
 
 import { DemandeStore, SetDemande } from '../demande.store';
 import { SetCurrentStep } from '../stepper.store';
@@ -43,7 +43,14 @@ export class OrganisationFormComponent  implements OnInit, OnDestroy {
   ngOnInit() {
     this.store.dispatch(new SetCurrentStep('organisation'));
     this.demande$.pipe(
-      tap(v => console.log(v))
+      take(1),
+      tap(demandeFromStore => {
+        if (demandeFromStore !== null) {
+          // REMPLIR LE FORMULAIRE AVEC LES DATA
+        }})
+    ).subscribe();
+    this.organisationForm.statusChanges.pipe(
+      tap(v => console.log('dans lobservable du changement de status', v))
     ).subscribe();
   }
 
@@ -52,9 +59,8 @@ export class OrganisationFormComponent  implements OnInit, OnDestroy {
       this.store.dispatch(new SetDemande(this.organisationForm.getRawValue()));
       console.log(this.organisationForm.getRawValue());
     } else {
-      console.log('pas valide')
+      console.log('pas valide');
     }
-    // destroy subscription
   }
 
 }

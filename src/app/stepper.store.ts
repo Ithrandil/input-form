@@ -15,6 +15,11 @@ static readonly type = '[Stepper] Set Current Step';
 constructor(public payload: string) { }
 }
 
+export class SetDisableButtonValue {
+static readonly type = '[Stepper] Set button disable value';
+constructor(public payload: boolean) { }
+}
+
 // *****************************
 // Store implementation
 // *****************************
@@ -28,14 +33,19 @@ constructor(public payload: string) { }
   })
   export class StepperStore {
     constructor() { }
+
     @Selector()
     static getCurrentStep(state: StepperStateModel) {
       return state.currentStep;
     }
 
-  
+    @Selector()
+    static getDisableValue(state: StepperStateModel) {
+      return state.isButtonDisabled;
+    }
+
     @Action(SetCurrentStep)
-    SetCurrentStep(
+    setCurrentStep(
       ctx: StateContext<StepperStateModel>,
       action: SetCurrentStep
     ) {
@@ -44,7 +54,18 @@ constructor(public payload: string) { }
         currentStep: action.payload
       })
     );
+    }
 
+    @Action(SetDisableButtonValue)
+    setDisableButtonValue(
+      ctx: StateContext<StepperStateModel>,
+      action: SetDisableButtonValue
+    ) {
+      ctx.setState(
+      patch({
+        isButtonDisabled: action.payload
+      })
+    );
     }
 
   }
