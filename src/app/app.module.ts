@@ -5,6 +5,7 @@ import { NgxsModule } from '@ngxs/store';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AuthModule } from './auth/auth.module';
 import { DemandeModule } from './demande/demande.module';
 
 
@@ -14,6 +15,7 @@ import { DemandeModule } from './demande/demande.module';
     AppComponent,
   ],
   imports: [
+    AuthModule,
     DemandeModule,
     NgxsModule.forRoot([], { developmentMode: true }),
     ReactiveFormsModule,
