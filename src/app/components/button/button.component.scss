@@ -1,6 +1,66 @@
-button {
-    width: 15rem;
-    height: 5rem;
-    background-color:lightsalmon;
-    border-radius: 10px;
+.csf-btn {
+    padding: 1rem !important;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 45px;
+    font-size: "Open Sans";
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+  }
+
+.csf-btn-fill,
+.csf-btn-no-fill {
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 45px;
+  padding: 4px 15px;
+  display: inline-block;
+  font-weight: normal;
+  text-align: center;
+}
+
+.csf-btn-fill:hover,
+.csf-btn-no-fill:hover {
+  text-decoration: none;
+}
+
+.csf-btn-fill:focus,
+.csf-btn-no-fill:focus {
+  outline: none;
+}
+
+.csf-btn-fill {
+  background-color: #dc3545;
+  color: white;
+  border-color: #dc3545;
+  transition: all .4s ease;
+}
+
+.csf-btn-fill:disabled {
+  background-color: #e7657d;
+  border-color: #e7657d;
+}
+
+.csf-btn-fill:hover:not(:disabled) {
+  background-color: white;
+  color: #dc3545;
+  transition: all .4s ease
+}
+
+.csf-btn-no-fill {
+  background-color: transparent;
+  border-color: #dc3545;
+  color: #dc3545;
+  transition: all .4s ease;
+
+}
+
+.csf-btn-no-fill:hover:not(:disabled) {
+  background-color: #dc3545;
+  color: white;
+  transition: all .4s ease;
+}
+
+.csf-btn-wide {
+  width: -webkit-fill-available;
+  width: -moz-available;
 }

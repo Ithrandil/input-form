@@ -1,1 +1,6 @@
-<button [innerHtml]="label" [disabled]="!forceEnable && (this.isButtonDisabled$ | async)"></button>
+<button type="button" 
+    class="btn btn-lg btn-block csf-btn csf-btn-fill" 
+    [innerHtml]="label" 
+    [disabled]="!forceEnable && (this.isButtonDisabled$ | async)"
+    [ngClass]="{'csf-btn-fill' : !!btnFill, 'csf-btn-no-fill': !btnFill}"
+    ></button>

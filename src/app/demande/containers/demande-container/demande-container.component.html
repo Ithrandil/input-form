@@ -1,7 +1,16 @@
-Ceci est le composant container avec un router outlet qui appelle l'organisation-form
-
-<router-outlet></router-outlet>
-
-Button component dans le container au même niveau que le router outlet
-<app-button label="Précédant" [forceEnable]=true (click)="backwardActionOnClick()"></app-button>
-<app-button label="Suivant" (click)="forwardActionOnClick()"></app-button>
+<div class="container">
+    <div class="row">
+        <div class="col-11">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-4">
+            <app-button label="Précédant" [btnFill]=false [forceEnable]=true (click)="backwardActionOnClick()"></app-button>
+        </div>
+        <div class="col-4">
+            <app-button label="Suivant" [btnFill]=true (click)="forwardActionOnClick()"></app-button>
+        </div>
+    </div>
+</div>

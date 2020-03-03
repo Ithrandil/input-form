@@ -12,6 +12,7 @@ export class ButtonComponent implements OnInit, OnDestroy{
   @Select(StepperStore.getDisableValue) isButtonDisabled$: Observable<boolean>;
   @Input() label: string;
   @Input() forceEnable = false;
+  @Input() btnFill: boolean;
   private subscription = new Subscription();
 
   constructor() { }

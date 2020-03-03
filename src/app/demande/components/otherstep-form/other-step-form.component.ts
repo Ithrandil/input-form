@@ -14,7 +14,7 @@ import { SetCurrentStep, SetDisableButtonValue } from '../../stores/stepper.stor
 })
 export class OtherStepFormComponent  implements OnInit, OnDestroy {
   @Select(DemandeStore.getCurrentDemande) demande$: Observable<any>;
-  private subscription: Subscription;
+  private subscription = new Subscription();
   favForm = this.fb.group({
     favoriteGame: ['', Validators.required],
     favoriteMeal: ['', Validators.required],
