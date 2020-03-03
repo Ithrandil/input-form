@@ -4,8 +4,8 @@ import { Select, Store } from '@ngxs/store';
 import { Observable, Subscription } from 'rxjs';
 import { take, tap } from 'rxjs/operators';
 
-import { DemandeStore, SetDemande } from '../demande.store';
-import { SetCurrentStep, SetDisableButtonValue } from '../stepper.store';
+import { DemandeStore, SetDemande } from '../../stores/demande.store';
+import { SetCurrentStep, SetDisableButtonValue } from '../../stores/stepper.store';
 
 @Component({
   selector: 'app-organisation-form',
@@ -14,7 +14,7 @@ import { SetCurrentStep, SetDisableButtonValue } from '../stepper.store';
 })
 export class OrganisationFormComponent  implements OnInit, OnDestroy {
   @Select(DemandeStore.getCurrentDemande) demande$: Observable<any>;
-  private subscription: Subscription;
+  private subscription = new Subscription();
   public organisationForm = this.fb.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],

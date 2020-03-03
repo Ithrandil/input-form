@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { OrganisationFormComponent } from './organisation-form/organisation-form.component';
-import { OtherStepFormComponent } from './otherstep-form/other-step-form.component';
+import { DemandeContainerComponent } from './demande/containers/demande-container/demande-container.component';
+
 
 const routes: Routes = [
-  {path: 'organisation', component: OrganisationFormComponent},
-  {path: 'etape2', component: OtherStepFormComponent},
-  {path: '', redirectTo: 'organisation', pathMatch: 'full'}
+  {path: 'demande', component: DemandeContainerComponent},
+  {path: '', redirectTo: 'demande', pathMatch: 'full'}
 ];
 
 @NgModule({

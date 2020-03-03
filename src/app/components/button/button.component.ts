@@ -1,8 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Select } from '@ngxs/store';
 import { Observable, Subscription } from 'rxjs';
-
-import { StepperStore } from '../stepper.store';
+import { StepperStore } from 'src/app/demande/stores/stepper.store';
 
 @Component({
   selector: 'app-button',
@@ -13,7 +12,7 @@ export class ButtonComponent implements OnInit, OnDestroy{
   @Select(StepperStore.getDisableValue) isButtonDisabled$: Observable<boolean>;
   @Input() label: string;
   @Input() forceEnable = false;
-  private subscription: Subscription;
+  private subscription = new Subscription();
 
   constructor() { }
 
