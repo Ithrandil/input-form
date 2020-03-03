@@ -15,3 +15,11 @@ input{
 .error{
     height: 3rem;
 }
+.form-control:focus {
+    border-color: #f8d7da;
+    box-shadow: 0 0 0 0.1rem rgba(134, 77, 77, 0.1);
+  }
+  
+  .form-control {
+    border-radius: 2rem;
+  }

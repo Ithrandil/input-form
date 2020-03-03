@@ -1,42 +1,54 @@
-<p>L'organisationForm fait quant à lui appel à des input components</p>
-<div>
-    <app-input 
-        type="text"
-        placeholder="Ex: Alexandre"
-        label="Prénom"
-        [form]="this.organisationForm.controls.firstName"
-        [errors]="this.errors.firstName"
-        ></app-input>
-</div>
-<div>
-    <app-input 
-        type="text"
-        placeholder="Ex: Guérin"
-        label="Nom"
-        [form]="this.organisationForm.controls.lastName"
-        [errors]="this.errors.lastName"
-        ></app-input>
-</div>
-<div>
-    <app-input 
-        type="email"
-        placeholder="Ex: dev@apside.com"
-        label="Email"
-        [form]="this.organisationForm.controls.email"
-        [errors]="this.errors.email"
-        ></app-input>
-</div>
-<div>
-    <app-input 
-        type="text"
-        placeholder="Ex: 06 15 11 88 66"
-        label="Mobile"
-        [form]="this.organisationForm.controls.phoneNumber"
-        [errors]="this.errors.phoneNumber"
-        ></app-input>
-</div>
-
-
-<div>
+<div class="container">
+    <div class="row">
+        <p>L'organisationForm fait quant à lui appel à des input components</p>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <app-input 
+                type="text"
+                placeholder="Ex: Alexandre"
+                label="Prénom"
+                [form]="this.organisationForm.controls.firstName"
+                [errors]="this.errors.firstName"
+                ></app-input>
+            </div>
+            <div class="col-6">
+                <app-input 
+                    type="text"
+                    placeholder="Ex: Guérin"
+                    label="Nom"
+                    [form]="this.organisationForm.controls.lastName"
+                    [errors]="this.errors.lastName"
+                    ></app-input>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <app-input 
+                type="email"
+                placeholder="Ex: dev@apside.com"
+                label="Email"
+                [form]="this.organisationForm.controls.email"
+                [errors]="this.errors.email"
+                ></app-input>
+        </div>
+        <div class="col-6">
+            <app-input 
+                type="text"
+                placeholder="Ex: 06 15 11 88 66"
+                label="Mobile"
+                [form]="this.organisationForm.controls.phoneNumber"
+                [errors]="this.errors.phoneNumber"
+                ></app-input>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 offset-3">
+            <p>
     Validité du formulaire => {{this.organisationForm.status}}
+            </p>
+        </div>
+    </div>
+    <div>
+    </div>
 </div>

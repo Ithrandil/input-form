@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
@@ -10,13 +10,14 @@ import { DemandeStore } from '../../stores/demande.store';
 @Component({
   selector: 'app-demande-container',
   templateUrl: './demande-container.component.html',
-  styleUrls: ['./demande-container.component.scss']
+  styleUrls: ['./demande-container.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DemandeContainerComponent implements OnInit, OnDestroy {
 
   @Select(StepperStore.getCurrentStep) currenStep$: Observable<string>;
   private allSteps: string[];
-
+currentStep = 'organisation';
   constructor(private router: Router, private store: Store ) {}
 
   ngOnInit() {

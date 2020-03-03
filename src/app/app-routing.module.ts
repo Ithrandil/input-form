@@ -6,7 +6,7 @@ import { DemandeContainerComponent } from './demande/containers/demande-containe
 
 const routes: Routes = [
   {path: 'demande', component: DemandeContainerComponent},
-  // {path: '', redirectTo: 'demande', pathMatch: 'full'}
+  {path: '', redirectTo: 'demande', pathMatch: 'full'}
 ];
 
 @NgModule({

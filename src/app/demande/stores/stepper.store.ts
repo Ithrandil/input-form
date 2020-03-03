@@ -26,7 +26,7 @@ constructor(public payload: boolean) { }
 @State<StepperStateModel>({
     name: 'stepper',
     defaults: {
-        steps: ['organisation', 'etape2', 'etape3', 'etape4', 'etape5', 'etape6'], // REMPLACER PAR UN ENUM
+        steps: ['organisation', 'certificat', 'etape3', 'etape4', 'etape5', 'etape6'], // REMPLACER PAR UN ENUM
         currentStep: null,
         isButtonDisabled: false
     }

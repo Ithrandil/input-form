@@ -9,7 +9,7 @@ const routes: Routes = [
   {path: 'demande', component: DemandeContainerComponent,
   children: [
     {path: 'organisation', component: OrganisationFormComponent},
-    {path: 'etape2', component: OtherStepFormComponent},
+    {path: 'certificat', component: OtherStepFormComponent},
     {path: '', redirectTo: 'organisation', pathMatch: 'full'},
   ]},
 

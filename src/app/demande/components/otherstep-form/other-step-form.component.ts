@@ -39,7 +39,7 @@ export class OtherStepFormComponent  implements OnInit, OnDestroy {
   constructor(private fb: FormBuilder, private store: Store) { }
 
   ngOnInit() {
-    this.store.dispatch(new SetCurrentStep('etape2'));
+    this.store.dispatch(new SetCurrentStep('certificat'));
     this.demande$.pipe(
       take(1),
       tap(demandeFromStore => {
